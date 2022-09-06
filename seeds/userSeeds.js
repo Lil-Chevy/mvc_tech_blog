@@ -10,7 +10,7 @@ const userData = [
     password: "guest",
   },
   {
-    username: "admin",
+    username: "admin1234",
     password: "guest1234",
   },
   {
@@ -35,6 +35,6 @@ const userData = [
   },
 ];
 
-const seedUsers = () => user.bulkCreate(userData);
+const seedUsers = () => User.bulkCreate(userData);
 
 module.exports = seedUsers;
