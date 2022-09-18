@@ -11,8 +11,11 @@ const commentFormHandler = async function (event) {
         postId,
         body,
       }),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
+
     document.location.reload();
   }
 };
