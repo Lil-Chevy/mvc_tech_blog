@@ -8,15 +8,14 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sequelize = require("./config/config");
-const { allowedNodeEnvironmentFlags } = require("process");
-const sequelizeStore = require("connect-session-sequelize")(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const sess = {
-  secret: "super secret secret",
-  cookies: {},
+  secret: "Super secret secret",
+  cookie: {},
   resave: false,
   saveUninitialized: true,
-  store: new sequelizeStore({
+  store: new SequelizeStore({
     db: sequelize,
   }),
 };
@@ -35,6 +34,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./controllers/"));
 
 app.listen(PORT, () => {
-  console.log(`AND WE ARE LIVE ON http://localhost:${PORT}`);
+  console.log(`App listening on port http://localhost:${PORT}`);
   sequelize.sync({ force: false });
 });
